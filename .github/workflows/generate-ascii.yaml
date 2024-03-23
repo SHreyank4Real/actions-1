@@ -18,7 +18,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dragon-text-file
-          path: dragon.txt
+          path: dragonartifact/dragon.txt
   
   test_job_2:
     needs: build_job_1
@@ -31,30 +31,27 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dragon-text-file
-          path: 
-
-      - name: Sleep for 1 Seconds
-        run: ls -al dragon.txt #1
+          path: dragonartifact
         
       - name: Sleep for 1 Seconds
-        run: cat dragon.txt
+        run: cat dragonartifact/dragon.txt
 
       - name: Test File Exists
-        run: grep -i "dragon" dragon.txt
+        run: grep -i "dragon" dragonartifact/dragon.txt
 
   deploy_job_3:
     needs: [build_job_1,test_job_2]
     runs-on: ubuntu-latest
     steps:
-      - name: Read File
-        run: cat dragon.txt
-
       - name: Download Artifcat
         uses: actions/download-artifact@v4
         with:
           name: dragon-text-file
-          path: dragon.txt   
-            
+          path: dragonartifact   
+          
+      - name: Read File
+        run: cat dragonartifact/dragon.txt
+          
       - name: Deploy
         run: |
           echo Deploying.......
