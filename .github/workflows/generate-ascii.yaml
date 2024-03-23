@@ -5,20 +5,29 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repo
-              uses: actions/checkout@v4
+        - name: Checkout Repo
+          uses: actions/checkout@v4
 
-            - name: Install Cowsay Program
-              run: sudo apt-get install cowsay -y
-            
-            - name: Execute Cowsay CMD
-              run: cowsay -f dragon "Run for cover, I am SHREYANK....RAWR" >> dragon.txt
-            
-            - name: Test File's Exstance
-              run: grep -i "SHREYANK" dragon.txt
+        - name: List Repo Files
+          run: ls -ltra
 
-            - name: Read File
-              run: cat dragon.txt
+        - name: Executing Shell Script
+          run: ./ascii-script.shell
+        # steps:
+        #     - name: Checkout repo
+        #       uses: actions/checkout@v4
+
+        #     - name: Install Cowsay Program
+        #       run: sudo apt-get install cowsay -y
             
-            - name: List Repo file
-              run: ls -ltra
+        #     - name: Execute Cowsay CMD
+        #       run: cowsay -f dragon "Run for cover, I am SHREYANK....RAWR" >> dragon.txt
+            
+        #     - name: Test File's Exstance
+        #       run: grep -i "SHREYANK" dragon.txt
+
+        #     - name: Read File
+        #       run: cat dragon.txt
+            
+        #     - name: List Repo file
+        #       run: ls -ltra
