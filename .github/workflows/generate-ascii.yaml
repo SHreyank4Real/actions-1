@@ -34,7 +34,7 @@ jobs:
           path: dragon.txt
 
       - name: Sleep for 1 Seconds
-        run: ls -al #1
+        run: ls -al dragon.txt #1
         
       - name: Sleep for 1 Seconds
         run: cat dragon.txt
