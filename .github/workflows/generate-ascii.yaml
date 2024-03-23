@@ -12,7 +12,7 @@ jobs:
           run: ls -ltra
 
         - name: Executing Shell Script
-          run: ./ascii-script.shell
+          run: ./ascii-script.sh
         # steps:
         #     - name: Checkout repo
         #       uses: actions/checkout@v4
