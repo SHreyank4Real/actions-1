@@ -33,14 +33,14 @@ jobs:
           name: dragon-text-file
           path: dragonartifact
         
-      - name: Sleep for 1 Seconds
-        run: cat dragonartifact/dragon.txt
+      # - name: Sleep for 1 Seconds
+      #   run: cat dragonartifact/dragon.txt
 
       - name: Test File Exists
         run: grep -i "dragon" dragonartifact/dragon.txt
 
   deploy_job_3:
-    needs: [build_job_1,test_job_2]
+    needs: [test_job_2]
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifcat
