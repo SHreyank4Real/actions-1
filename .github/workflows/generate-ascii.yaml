@@ -32,9 +32,9 @@ jobs:
         with:
           name: dragon-text-file
           path: dragon.txt
-          
+
       - name: Sleep for 1 Seconds
-        run: sleep 1
+        run: ls -al #1
 
       - name: Test File Exists
         run: grep -i "dragon" dragon.txt
