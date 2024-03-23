@@ -37,7 +37,7 @@ jobs:
         run: ls -al #1
         
       - name: Sleep for 1 Seconds
-        run: cat dragon.txt#1
+        run: cat dragon.txt
 
       - name: Test File Exists
         run: grep -i "dragon" dragon.txt
