@@ -1,0 +1,10 @@
+name: Testing If Blocking #using expressions
+on: push
+
+jobs:
+  exe-if-main:
+    if: 'github.ref == ref/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        run: echo "test"
