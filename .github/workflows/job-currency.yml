@@ -22,7 +22,8 @@ jobs:
         needs: printjob
         concurrency: 
            group: production-deployment
-           cancel-in-progress: true 
+           #cancel-in-progress: true 
+           cancel-in-progress: false
         runs-on: ubuntu-latest
         steps:
             - name: Write Name
