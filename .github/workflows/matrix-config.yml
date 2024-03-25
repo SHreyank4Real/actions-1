@@ -35,10 +35,10 @@ jobs:
                 include:
                     - images: amd64/alpine
                     - os: ubuntu-20.04
-        runs-on: ${{ matrix.os}}
+        runs-on: ${{ matrix.os }}
         steps:
             - name: Echo Docker Details
               run: docker info
 
-            - name: Run Imageon ${{ matrix.images}}
-              run: docker run ${{ matrix.images}}
+            - name: Run Imageon ${{ matrix.images }}
+              run: docker run ${{ matrix.images }}
