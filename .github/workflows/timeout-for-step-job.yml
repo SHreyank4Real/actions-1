@@ -1,0 +1,39 @@
+name: Timeouts
+on: 
+    workflow_dispatch: 
+    # schedule:
+    #     - cron: "*/1 * * * *"
+
+env:
+    NAME: SHREYANK 
+    GAME: CALLOFDUTY
+
+jobs:
+    printjob:
+        timeout-minutes: 1
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Name
+              run: echo ${{ env.NAME }}
+            - name: Print Game
+              run: echo ${{ env.GAME }}
+
+    writejob:
+        needs: printjob
+        concurrency: 
+           group: production-deployment
+           #cancel-in-progress: true 
+           cancel-in-progress: false
+        runs-on: ubuntu-latest
+        steps:
+            - name: Write Name
+              run: echo $NAME > test.txt
+            - name: Write Game
+              run: echo $GAME >> test.txt
+            - name: sleep
+              timeout-minutes: 1
+              run: sleep 100s
+            - name: print
+              run: cat test.txt
+
+#github default timeout 360mins
