@@ -20,6 +20,9 @@ jobs:
 
     writejob:
         needs: printjob
+        concurrency: 
+           group: production-deployment
+           cancel-in-progress: true 
         runs-on: ubuntu-latest
         steps:
             - name: Write Name
