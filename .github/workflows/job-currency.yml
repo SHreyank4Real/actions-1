@@ -1,4 +1,4 @@
-name: Exploring Manual Workflow
+name: Job Concurrency
 
 on: 
     workflow_dispatch: 
