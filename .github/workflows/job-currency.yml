@@ -1,0 +1,32 @@
+name: Exploring Manual Workflow
+
+on: 
+    workflow_dispatch: 
+    # schedule:
+    #     - cron: "*/1 * * * *"
+
+env:
+    NAME: SHREYANK 
+    GAME: CALLOFDUTY
+
+jobs:
+    printjob:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Name
+              run: echo ${{ env.NAME }}
+            - name: Print Game
+              run: echo ${{ env.GAME }}
+
+    writejob:
+        needs: printjob
+        runs-on: ubuntu-latest
+        steps:
+            - name: Write Name
+              run: echo $NAME > test.txt
+            - name: Write Game
+              run: echo $GAME >> test.txt
+            - name: sleep
+              run: sleep 600s
+            - name: print
+              run: cat test.txt
