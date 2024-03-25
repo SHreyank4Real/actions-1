@@ -24,7 +24,7 @@ jobs:
     
     deploy:
         strategy:
-            fail-fast: false # by default its true, means if a step failed it will not stop steps which are in progress or in quee
+            fail-fast: false 
             max-parallel: 2
             matrix:
                 os: [ubuntu-latest,ubuntu-20.04, windows-latest]
