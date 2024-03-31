@@ -1,0 +1,17 @@
+name: Testing If Blocking #using expressions
+on:
+    workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'     
+          required: true
+          default: 'warning'
+        tags:
+          description: 'Test scenario tags'
+
+jobs:
+  exe-if-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        run: echo "test"
